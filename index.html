@@ -8,11 +8,12 @@
     <meta name="author" content="Gabriel Breno Amorim; Filipe Carvalho">
 
     <title>Academic Reminder - Protótipo inicial</title>
-    
+
     <link rel="stylesheet" type="text/css" href="bibliotecas/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="bibliotecas/landing-page.css">
     <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/fonts-latin.css">
+    <link rel="stylesheet" type="text/css" href="loginstyle.css">
 </head>
 
 <body>
@@ -38,12 +39,32 @@
                         <a href="#contato">Contato</a>
                     </li>
                     <li>
-                        <a href="#entrar">Entrar</a>
+                      <a href="#entrar"data-toggle="modal">Entrar</a>
+
+
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!--LOGIN-->
+    <div class="modal fade" id="entrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+        <div class="loginmodal-container">
+          <h1>Login to Your Account</h1><br>
+          <form>
+            <input type="text" name="user" placeholder="Username">
+            <input type="password" name="pass" placeholder="Password">
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+          </form>
+
+          <div class="login-help">
+            <a href="register.html">Register</a> - <a href="#">Forgot Password</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Header -->
     <div class="intro-header">
@@ -66,6 +87,8 @@
     </div>
 
     <!-- Conteúdo da página -->
+
+
 	<a name="a-proposta"></a>
     <div class="content-section-a">
         <div class="container">
@@ -99,6 +122,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer>

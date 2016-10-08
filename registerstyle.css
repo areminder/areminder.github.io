@@ -19,8 +19,8 @@ body, html{
 
 h1.title {
 	font-size: 50px;
-	font-family: 'Passion One', cursive;
-	font-weight: 400;
+	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: 700;
 }
 
 hr{
@@ -40,6 +40,7 @@ input,
 input::-webkit-input-placeholder {
     font-size: 11px;
     padding-top: 3px;
+    opacity: 0.8;
 }
 
 .main-login{

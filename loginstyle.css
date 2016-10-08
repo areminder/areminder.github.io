@@ -16,7 +16,7 @@
 .loginmodal-container h1 {
   text-align: center;
   font-size: 1.8em;
-  font-family: roboto;
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .loginmodal-container input[type=submit] {
@@ -26,9 +26,11 @@
   position: relative;
 }
 
+
+
 .loginmodal-container input[type=text], input[type=password] {
   height: 44px;
-  font-size: 16px;
+  font-size: 14px;
   width: 100%;
   margin-bottom: 10px;
   -webkit-appearance: none;
@@ -39,6 +41,11 @@
   padding: 0 8px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
+  opacity: 0.5;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  transition: opacity 250ms ease-in-out;
 }
 
 .loginmodal-container input[type=text]:hover, input[type=password]:hover {

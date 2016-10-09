@@ -1,153 +1,153 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Protótipo inicial para o projeto da disciplina de Desenvolvimento Web">
-    <meta name="author" content="Gabriel Breno Amorim; Filipe Carvalho">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Protótipo inicial para o projeto da disciplina de Desenvolvimento Web">
+  <meta name="author" content="Gabriel Breno Amorim; Filipe Carvalho">
 
-    <title>Academic Reminder - Protótipo inicial</title>
+  <title>Academic Reminder - Protótipo inicial</title>
 
-    <link rel="stylesheet" type="text/css" href="bibliotecas/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="bibliotecas/landing-page.css">
-    <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/fonts-latin.css">
-    <link rel="stylesheet" type="text/css" href="loginstyle.css">
+  <link rel="stylesheet" type="text/css" href="bibliotecas/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bibliotecas/landing-page.css">
+  <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/fonts-latin.css">
+  <link rel="stylesheet" type="text/css" href="loginstyle.css">
 </head>
 
 <body>
-    <!-- Navegação -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Navegação</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="#">Academic Reminder</a>
-            </div>
+  <!-- Navegação -->
+  <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Navegação</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand topnav" href="#">Academic Reminder</a>
+      </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#a-proposta">A proposta</a>
-                    </li>
-                    <li>
-                        <a href="#contato">Contato</a>
-                    </li>
-                    <li>
-                      <a href="#entrar"data-toggle="modal">Entrar</a>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#a-proposta">A proposta</a>
+          </li>
+          <li>
+            <a href="#contato">Contato</a>
+          </li>
+          <li>
+            <a href="#entrar"data-toggle="modal">Entrar</a>
 
 
-                    </li>
-                </ul>
-            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--LOGIN-->
+  <div class="modal fade" id="entrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="loginmodal-container">
+        <h1>Entre na sua conta</h1><br>
+        <form>
+          <input type="text" name="user" placeholder="Nome de usuario">
+          <input type="password" name="pass" placeholder="Senha">
+          <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+        </form>
+
+        <div class="login-help">
+          <a href="register.html">Registre-se!</a> - <a href="#">Esqueceu a senha?</a>
         </div>
-    </nav>
+      </div>
+    </div>
+  </div>
 
-    <!--LOGIN-->
-    <div class="modal fade" id="entrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        	  <div class="modal-dialog">
-    				<div class="loginmodal-container">
-    					<h1>Entre na sua conta</h1><br>
-    				  <form>
-    					<input type="text" name="user" placeholder="Nome de usuario">
-    					<input type="password" name="pass" placeholder="Senha">
-    					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
-    				  </form>
-
-    				  <div class="login-help">
-    					<a href="register.html">Registre-se!</a> - <a href="#">Esqueceu a senha?</a>
+  <!-- Header -->
+  <div class="intro-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="intro-message">
+            <h1>Academic Reminder</h1>
+            <h3>A solução para a sua graduação</h3>
+            <hr class="intro-divider">
+            <ul class="list-inline intro-social-buttons">
+              <li>
+                <a href="https://github.com/areminder/areminder.github.io" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Header -->
-    <div class="intro-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Academic Reminder</h1>
-                        <h3>A solução para a sua graduação</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="https://github.com/areminder/areminder.github.io" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <!-- Conteúdo da página -->
+
+
+  <a name="a-proposta"></a>
+  <div class="content-section-a">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="section-heading">A proposta</h2>
+          <p class="lead">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         </div>
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6" style="font-size:250px; padding-left:100px">
+          <i class="fa fa-lightbulb-o"></i>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Conteúdo da página -->
-
-
-	<a name="a-proposta"></a>
-    <div class="content-section-a">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">A proposta</h2>
-                    <p class="lead">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6" style="font-size:250px; padding-left:100px">
-                   	<i class="fa fa-lightbulb-o"></i>
-                </div>
-            </div>
+  <a name="contato"></a>
+  <div class="content-section-b">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="section-heading">Contato</h2>
+          <p class="lead">"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."</p>
         </div>
+        <div class="col-lg-5 col-sm-pull-6 col-sm-6" style="font-size:250px; padding-left:150px">
+          <i class="fa fa-envelope"></i>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <a name="contato"></a>
-    <div class="content-section-b">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Contato</h2>
-                    <p class="lead">"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."</p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6 col-sm-6" style="font-size:250px; padding-left:150px">
-                    <i class="fa fa-envelope"></i>
-                </div>
-            </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-inline">
+            <li>
+              <a href="#a-proposta">A proposta</a>
+            </li>
+            <li class="footer-menu-divider">&sdot;</li>
+            <li>
+              <a href="#contato">Contato</a>
+            </li>
+          </ul>
+          <p class="copyright text-muted small">Copyright &copy; Academic Reminder 2016. Todos os direitos reservados</p>
         </div>
+      </div>
     </div>
+  </footer>
 
+  <!-- Inclusão JQuery -->
+  <script src="bibliotecas/jquery/jquery.min.js"></script>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#a-proposta">A proposta</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contato">Contato</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Academic Reminder 2016. Todos os direitos reservados</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Inclusão JQuery -->
-    <script src="bibliotecas/jquery/jquery.min.js"></script>
-
-    <!-- Inclusão Bootstrap JavaScript -->
-    <script src="bibliotecas/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Inclusão Bootstrap JavaScript -->
+  <script src="bibliotecas/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

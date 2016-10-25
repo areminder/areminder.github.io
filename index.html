@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/font-awesome.min.css">
 
         <link rel="stylesheet" type="text/css" href="bibliotecas/font-awesome/css/fonts-latin.css">
-        
+
         <link rel="stylesheet" type="text/css" href="bibliotecas/bootstrap/css/loginstyle.css">
     </head>
     <body>
@@ -34,6 +34,11 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        <li style="padding-top: 9px">
+                            <form action="registrar.html">
+                                <button class="btn">Registre-se</button>
+                            </form>
+                        </li>
                         <li>
                             <a href="#entrar" data-toggle="modal">Entrar</a>
                         </li>
@@ -47,14 +52,23 @@
             <div class="modal-dialog">
                 <div class="loginmodal-container">
                     <h1>Entre na sua conta</h1><br>
-                    <form action="reminder/index.html">
-                        <input type="text" placeholder="Nome de usuário ou e-mail">
-                        <input type="password" placeholder="Senha">
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                    <form action="reminder/visao-geral.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nome de usuário ou e-mail">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Senha">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </div>
+                        <div class="form-group">
+                            <div class="login-help">
+                                <a href="registrar.html" style="color: #D33724">Registre-se!</a> - <a href="#">Esqueceu a senha?</a>
+                            </div>
+                        </div>
                     </form>
-                    <div class="login-help">
-                        <a href="registrar.html" style="color: #D33724">Registre-se!</a> - <a href="#">Esqueceu a senha?</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -70,7 +84,7 @@
                             <hr class="intro-divider">
                             <ul class="list-inline intro-social-buttons">
                                 <li>
-                                    <a href="https://github.com/areminder/areminder.github.io" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> 
+                                    <a href="https://github.com/areminder/areminder.github.io" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i>
                                         <span class="network-name">Github</span>
                                     </a>
                                 </li>
@@ -83,7 +97,6 @@
 
         <!-- Conteúdo da página -->
         <!-- Conteúdo no lado esquerdo da página -->
-        <a name="a-proposta"></a>
         <div class="content-section-a">
             <div class="container">
                 <div class="row">
@@ -101,7 +114,6 @@
         </div>
 
         <!-- Conteúdo no lado direito da página -->
-        <a name="organize-se"></a>
         <div class="content-section-b">
             <div class="container">
                 <div class="row">
@@ -131,7 +143,7 @@
 
         <!-- Inclusão JQuery -->
         <script src="bibliotecas/jquery/jquery.min.js"></script>
-        
+
         <!-- Inclusão Bootstrap JavaScript -->
         <script src="bibliotecas/bootstrap/js/bootstrap.min.js"></script>
     </body>
@@ -143,16 +155,16 @@
                     var bottom_of_object = $(this).position().top + $(this).outerHeight();
                     var bottom_of_window = $(window).scrollTop() + $(window).height();
                     /* Adjust the "200" to either have a delay or that the content starts fading a bit before you reach it  */
-                    bottom_of_window = bottom_of_window + 200;  
+                    bottom_of_window = bottom_of_window + 200;
                     if( bottom_of_window > bottom_of_object ){
                         $(this).delay(i*500).animate({'opacity':'1'},500);
                     }
-                }); 
+                });
                 $('#hide-icon-b, #hide-text-b').each( function(i){
                     var bottom_of_object = $(this).position().top + $(this).outerHeight();
                     var bottom_of_window = $(window).scrollTop() + $(window).height();
                     /* Adjust the "200" to either have a delay or that the content starts fading a bit before you reach it  */
-                    bottom_of_window = bottom_of_window + 200;  
+                    bottom_of_window = bottom_of_window + 200;
                     if( bottom_of_window > bottom_of_object ){
                         $(this).delay(i*500).animate({'opacity':'1'},500);
                     }

@@ -121,25 +121,3 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
-
-.content-icon {
-    font-size: 240px;
-    padding-left:100px;
-}
-
-.circle-icon {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 100px;
-    vertical-align: middle;
-    padding: 30px;
-}
-
-#hide-text-a,
-#hide-icon-a,
-#hide-text-b,
-#hide-icon-b {
-    opacity: 0;
-}

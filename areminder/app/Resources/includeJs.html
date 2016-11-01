@@ -1,27 +1,6 @@
 <script type="text/javascript" src="assets/vendor/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(window).scroll( function(){
-                $('#hide-text-a, #hide-icon-a').each( function(i){
-                    var bottom_of_object = $(this).position().top + $(this).outerHeight();
-                    var bottom_of_window = $(window).scrollTop() + $(window).height();
-                    /* Adjust the "200" to either have a delay or that the content starts fading a bit before you reach it  */
-                    bottom_of_window = bottom_of_window + 200;
-                    if( bottom_of_window > bottom_of_object ){
-                        $(this).delay(i*500).animate({'opacity':'1'},500);
-                    }
-                });
-                $('#hide-icon-b, #hide-text-b').each( function(i){
-                    var bottom_of_object = $(this).position().top + $(this).outerHeight();
-                    var bottom_of_window = $(window).scrollTop() + $(window).height();
-                    /* Adjust the "200" to either have a delay or that the content starts fading a bit before you reach it  */
-                    bottom_of_window = bottom_of_window + 200;
-                    if( bottom_of_window > bottom_of_object ){
-                        $(this).delay(i*500).animate({'opacity':'1'},500);
-                    }
-                });
-            });
-        });
-    </script>
+<script type="text/javascript" src="assets/vendor/bootstrap/dist/js/wow.min.js"></script>
+<script type="text/javascript" src="assets/vendor/bootstrap/dist/js/slider.js"></script>
+<script type="text/javascript" src="assets/vendor/bootstrap/dist/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="assets/vendor/bootstrap/dist/js/main.js"></script>

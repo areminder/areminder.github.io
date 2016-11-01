@@ -1,0 +1,30 @@
+{
+  "name": "academic-reminder",
+  "homepage": "https://areminder.me",
+  "authors": [
+    "Gabriel Breno Amorim - gamoridev",
+    "Filipe Carvalho - sobek"
+  ],
+  "description": "Organiza e ajuda a realização de tarefas",
+  "main": "",
+  "keywords": [
+    "reminder",
+    "todo",
+    "application",
+    "web"
+  ],
+  "license": "MIT",
+  "directory": "web/assets/vendor/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "datatables": "^1.10.12",
+    "font-awesome": "^4.7.0"
+  }
+}

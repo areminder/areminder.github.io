@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+app_cadastro_index:
+    pattern: /registro
+    defaults: { _controller: src/AppBundle/Controller/Cadastro:signup }

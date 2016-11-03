@@ -1,37 +1,36 @@
-﻿{# app/Resources/default/index.html.twig #}
+{# app/Resources/default/index.html.twig #}
 
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    
-    <!-- Header -->
-    <div class="intro-header">
+    <section id="hero-area" >
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Academic Reminder</h1>
-                        <h3>Forme-se de maneira organizada</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                        	<li>
-                        		<a href="#entrar" data-toggle="modal" class="btn btn-success btn-lg"><i class="fa fa-graduation-cap"></i>
-                        			<span class="network-name">Entrar</span>
-                        		</a>
-                        	</li>
-                            <li>
-                                <a href="https://github.com/areminder/areminder.github.io" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i>
-                                    <span class="network-name">Github</span>
-                                </a>
-                            </li>
-                        </ul>
+                <div class="col-md-12 text-center">
+                    <div class="block wow fadeInUp" data-wow-delay=".3s">
+                        <section class="cd-intro">
+                        <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s" >
+                        <span>OLÁ, EU SOU O <a style="color:#31B0D5">A</a>CADEMIC <a style="color:#31B0D5">REMINDER</a> E SEREI SEU</span><br>
+                        <span class="cd-words-wrapper">
+                            <b class="is-visible">GUIA</b>
+                            <b>ASSISTENTE</b>
+                            <b>AJUDANTE</b>
+                            <b>AUXILIADOR</b>
+                            <b>SECRETÁRIO</b>
+                            <b>COLABORADOR</b>
+                        </span>
+                        </h1>
+                        </section> 
+                        <h2 class="wow fadeInUp animated" data-wow-delay=".6s" >
+                            ORGANIZE SUAS TAREFAS, PROVAS, GRADES-HORÁRIAS EM RECURSOS SIMPLES E DE FÁCIL INCLUSÃO.
+                        </h2>
+                        <a class="btn-lines dark light wow fadeInUp animated smooth-scroll btn btn-default btn-green" data-wow-delay=".9s" href="registro" data-section="#works">ENTENDA COMO FUNCIONA</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Conteúdo da página -->
     <section id="about">
         <div class="container">
             <div class="row">
@@ -55,7 +54,7 @@
                 </div>
             </div>
         </div>
-    </section> <!-- /#about -->
+    </section>
     
     <section id="works" class="works">
         <div class="container">
@@ -172,8 +171,4 @@
             </div>
         </div>
     </section>
-                    
-
-    <!-- Conteúdo no lado esquerdo da página -->
-    
 {% endblock %}

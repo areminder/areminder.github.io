@@ -3,7 +3,6 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@UsersBundle/Resources/config/services.yml" }
-    - { resource: "@AppBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -37,6 +36,8 @@ framework:
 assetic:
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
+    read_from:      %kernel.root_dir%/Resources/views/
+    write_to:       %kernel.root_dir%/../web/
     filters:
         cssrewrite: ~
 

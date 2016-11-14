@@ -5,16 +5,13 @@
         <title>{% block title %}Academic Reminder{% endblock %}</title>
 
         {% block stylesheets %}
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/login-style.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/main.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/register-style.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/animate.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/owl.carousel.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/owl.theme.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/responsive.css')}}">
-            <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/dist/css/slider.css')}}">
+            {% stylesheets
+                'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+                'assets/vendor/font-awesome/css/font-awesome.min.css'
+                'assets/vendor/dist/css/*.css'
+                output = 'css/compiled/app.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
         {% endblock %}
 
     </head>
@@ -30,18 +27,19 @@
             {% block body %}{% endblock %}
         </div>
 
-        {% block javascripts %}
-            <script type="text/javascript" src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('assets/vendor/dist/js/wow.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('assets/vendor/dist/js/slider.js')}}"></script>
-            <script type="text/javascript" src="{{asset('assets/vendor/dist/js/jquery.fancybox.js')}}"></script>
-            <script type="text/javascript" src="{{asset('assets/vendor/dist/js/owl.carousel.min.js')}}"></script>
-            <script type="text/javascript" src="{{asset('assets/vendor/dist/js/main.js')}}"></script>
-            <script type="text/javascript" src="{{asset('assets/vendor/dist/js/modernizr-2.6.2.min.js')}}"></script>
-        {% endblock %}
-        
-        <!-- Footer -->
+        {% javascripts
+            'assets/vendor/jquery/dist/jquery.min.js'
+            'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
+            'assets/vendor/dist/js/wow.min.js'
+            'assets/vendor/dist/js/slider.js'
+            'assets/vendor/dist/js/jquery.fancybox.js'
+            'assets/vendor/dist/js/owl.carousel.min.js'
+            'assets/vendor/dist/js/main.js'
+            'assets/vendor/dist/js/modernizr-2.6.2.min.js' 
+            output = 'js/compiled/app.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
         {% include 'layout/footer.html.twig' %}
     </body>
 </html>

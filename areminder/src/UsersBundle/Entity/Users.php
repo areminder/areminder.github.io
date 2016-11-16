@@ -24,4 +24,50 @@ class Users extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+    /**
+     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Tasks", mappedBy="user", cascade={"remove"})
+     */
+    protected $tasks;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Adiciona uma tarefa
+     *
+     * @param Tasks $task
+     * @return Branch
+     */
+    public function addTask(Tasks $task)
+    {
+        $this->tasks[] = $tasks;
+
+        return $this;
+    }
+
+    /**
+     * Remove uma tarefa
+     *
+     * @param Tasks $tasks
+     */
+    public function removeTasks(Tasks $tasks)
+    {
+        $this->tasks->removeElement($tasks);
+    }
+
+    /**
+     * Retorna uma tarefa
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
 }

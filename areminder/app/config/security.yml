@@ -23,6 +23,9 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                # login success redirecting options (read further below)
+                always_use_default_target_path: false
+                default_target_path: http://www.google.com
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
 

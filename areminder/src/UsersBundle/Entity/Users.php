@@ -22,14 +22,14 @@ class Users extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Tasks", mappedBy="user", cascade={"remove"})
      */
-    protected $tasks;
+    protected $task;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->task = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -40,7 +40,7 @@ class Users extends BaseUser
      */
     public function addTask(Tasks $task)
     {
-        $this->tasks[] = $tasks;
+        $this->task[] = $task;
 
         return $this;
     }
@@ -48,11 +48,11 @@ class Users extends BaseUser
     /**
      * Remove uma tarefa
      *
-     * @param Tasks $tasks
+     * @param Tasks $task
      */
-    public function removeTasks(Tasks $tasks)
+    public function removeTasks(Tasks $task)
     {
-        $this->tasks->removeElement($tasks);
+        $this->task->removeElement($task);
     }
 
     /**
@@ -62,6 +62,6 @@ class Users extends BaseUser
      */
     public function getTasks()
     {
-        return $this->tasks;
+        return $this->task;
     }
 }

@@ -19,12 +19,6 @@ class Users extends BaseUser
      */
     protected $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
-
     /**
      * @ORM\OneToMany(targetEntity="MainBundle\Entity\Tasks", mappedBy="user", cascade={"remove"})
      */

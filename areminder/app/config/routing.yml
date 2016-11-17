@@ -8,5 +8,10 @@ visao_i:
     prefix:   /
     type: annotation
 
+tarefas:
+    resource: "@VisaoIBundle/Controller/TarefasController.php"
+    prefix:   /
+    type: annotation
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -145,8 +145,8 @@ class Tarefas
     }
 
     /**
-    *  @ORM\ManyToOne(targetEntity="UsersBundle\Entity\Users", cascade={"remove"})
-    *  @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+    *  @ORM\ManyToOne(targetEntity="UsersBundle\Entity\Users")
+    *  @ORM\JoinColumn(name="id_user", referencedColumnName="id", onDelete="CASCADE")
     */
 
     private $user;

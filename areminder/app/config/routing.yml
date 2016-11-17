@@ -3,5 +3,10 @@ main:
     prefix:   /
     type: annotation
 
+visao_i:
+    resource: "@VisaoIBundle/Controller/VisaoIController.php"
+    prefix:   /
+    type: annotation
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

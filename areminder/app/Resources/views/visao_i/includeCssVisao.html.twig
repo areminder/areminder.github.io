@@ -1,0 +1,10 @@
+{% block stylesheets %}
+    {% stylesheets
+        'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+        'assets/vendor/font-awesome/css/font-awesome.min.css'
+        'assets/vendor/dist/css/sb-admin-2.min.css'
+        'assets/vendor/dist/css/metisMenu.min.css'
+        output = 'lib/css/appInterna.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" filter="cssrewrite"/>
+    {% endstylesheets %}
+{% endblock %}

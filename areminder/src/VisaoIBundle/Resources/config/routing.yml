@@ -1,0 +1,3 @@
+visao_i_homepage:
+    path:     /
+    defaults: { _controller: VisaoIBundle:Default:index }

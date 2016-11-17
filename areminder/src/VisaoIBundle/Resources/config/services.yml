@@ -1,0 +1,4 @@
+services:
+#    visao_i.example:
+#        class: VisaoIBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

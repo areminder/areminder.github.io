@@ -55,13 +55,13 @@ class TarefasController extends Controller
 
     /**
     * @Route("/muda-status-tarefa/{$id}", name="tarefa-finalizada")
-    * @Method({"POST"})
+    * @Method({"GET", "POST"})
     */ 
     public function finalizaAction($id, Request $request)
     {
     	$em = $this->getDoctrine()->getManager();
 
-    	$tarefa = $em->getRepository('VisaoIBundle:Tarefa')->find($id);
+    	$tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
 
     	if (!$task) {
     		$this->addFlash('error', 'Tarefa não encontrada');
@@ -77,13 +77,14 @@ class TarefasController extends Controller
 
    	/**
     * @Route("/deleta-tarefa/{$id}", name="tarefa-deletada")
-    * @Method({"POST"})
+    * @Method({"GET", "POST"})
     */ 
     public function deletaAction($id, Request $request)
     {
-    	$em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-    	$tarefa = $em->getRepository('VisaoIBundle:Tarefa')->find($id);
+        $tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
+        echo "<pre>";print_r($tarefa);die;
 
     	if (!$task) {
     		$this->addFlash('error', 'Tarefa não encontrada');

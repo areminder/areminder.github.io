@@ -6,17 +6,41 @@
             </div>
         </div>
         <div class="row">
-        	{{ form_start(form) }}
-        	<button type="submit" class="btn btn-default">Criar nova Tarefa</button>
+        	{{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+            
+            <div class="form-group">
+                {{ form_widget(form.descricao, {'attr': {'class': 'form-control', 'size': 60}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.data_finaliza, {'attr': {'class': 'form-control', 'size': 60}}) }}
+            </div>
+
+
+        	<button type="submit" style="background-color:#00ff00" class="btn btn-default">Criar nova Tarefa</button>
         	{{ form_widget(form) }}
         	{{ form_end(form) }}
 
         	{% if tarefas %}
 	        	<div class="list-group">
 	        		{% for tarefa in tarefas %}
-	        			{{ tarefa.descricao }}<br/>
+                        <div class="list-group-item" {% if not tarefa.finalizada %} style="background-color:#ff1a1a" {% endif %} id="tarefa-{{ tarefa.id }}">
+
+                            <div class="checkbox">
+                                <span class="pull-right">
+                                    <a href="{{ path('tarefa-deletada', {id: tarefa.id}) }}">
+                                        <span class="fa fa-trash"></span> 
+                                    </a>
+                                <span>{{ tarefa.id }}</span>
+                            </div>
+
+                            <label>
+                                <input type="checkbox" class="tarefa" value="{{ tarefa.id }}" {% if tarefa.finalizada %}checked="checked"{% endif %}> {{ tarefa.descricao }}
+                            </label>
+                        </div>
 	        		{% endfor %}
 	        	</div>
+            {% else %}
+                <p>Nenhuma tarefa registrada no momento. Crie uma nova tarefa no formulário acima.</p>
 	        {% endif %}
        	</div>
     {% endblock %}

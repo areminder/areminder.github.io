@@ -46,7 +46,6 @@ class ProvasController extends Controller
 
     		$em->persist($prova);
     		$em->flush();
-    		$this->addFlash('notice', 'Prova adicionada!');
 
     		return $this->redirectToRoute('provas');
     	}
@@ -71,7 +70,6 @@ class ProvasController extends Controller
         $prova = $em->getRepository('VisaoIBundle:Provas')->find($id);
 
     	if (!$prova) {
-    		$this->addFlash('error', 'Prova não encontrada');
 
     		return $this->redirectToRoute('provas');
     	}

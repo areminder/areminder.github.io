@@ -46,7 +46,6 @@ class NotasController extends Controller
 
     		$em->persist($nota);
     		$em->flush();
-    		$this->addFlash('notice', 'Nota adicionada!');
 
     		return $this->redirectToRoute('notas');
     	}
@@ -70,7 +69,6 @@ class NotasController extends Controller
         $nota = $em->getRepository('VisaoIBundle:Notas')->find($id);
 
     	if (!$nota) {
-    		$this->addFlash('error', 'Nota não encontrada');
 
     		return $this->redirectToRoute('notas');
     	}

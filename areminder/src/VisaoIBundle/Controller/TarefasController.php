@@ -48,7 +48,6 @@ class TarefasController extends Controller
 
     		$em->persist($tarefa);
     		$em->flush();
-            $this->addFlash('notice', 'Tarefa adicionada!');
 
     		return $this->redirectToRoute('tarefas');
     	}
@@ -73,7 +72,6 @@ class TarefasController extends Controller
     	$tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
 
     	if (!$tarefa) {
-    		$this->addFlash('error', 'Tarefa não encontrada');
 
     		return $this->redirectToRoute('tarefas');
     	}
@@ -95,7 +93,6 @@ class TarefasController extends Controller
     	$tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
 
     	if (!$tarefa) {
-    		$this->addFlash('error', 'Tarefa não encontrada');
 
     		return $this->redirectToRoute('tarefas');
     	}

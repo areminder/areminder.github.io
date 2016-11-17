@@ -59,11 +59,16 @@ class ProvasController extends Controller
     	));
     }
 
+
+    /**
+    * @Route("/deleta-prova/{id}", name="prova-deletada")
+    * @Method({"GET", "POST"})
+    */ 
      public function deletaAction($id, Request $request)
     {
     	$em = $this->getDoctrine()->getManager();
 
-        $noprovata = $em->getRepository('VisaoIBundle:Provas')->find($id);
+        $prova = $em->getRepository('VisaoIBundle:Provas')->find($id);
 
     	if (!$prova) {
     		$this->addFlash('error', 'Prova não encontrada');

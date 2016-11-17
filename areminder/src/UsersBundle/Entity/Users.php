@@ -5,6 +5,7 @@ namespace UsersBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -18,60 +19,4 @@ class Users extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @ORM\OneToMany(targetEntity="MainBundle\Entity\Tasks", mappedBy="user", cascade={"remove"})
-     */
-    protected $tasks;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Adiciona tarefa
-     *
-     * @param Task $task
-     * @return Branch
-     */
-    public function addTask(Task $task)
-    {
-        $this->tasks[] = $task;
-
-        return $this;
-    }
-
-    /**
-     * Remove tarefa
-     *
-     * @param Task $task
-     */
-    public function removeTask(Task $task)
-    {
-        $this->products->removeElement($task);
-    }
-
-    /**
-     * Retora tarefa
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTask()
-    {
-        return $this->tasks;
-    }
-
-    /**
-     * Get tasks
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTasks()
-    {
-        return $this->tasks;
-    }
 }

@@ -22,8 +22,7 @@ class VisaoIController extends Controller
     	/**
     	* Traz todas as tarefas não finalizadas do usuário logado.
     	*/
-    	$tarefas_pendentes = $em->getRepository('VisaoIBundle:Tarefas')->findByUser($user->getId());
-    	$tarefas_pendentes = $em->getRepository('VisaoIBundle:Tarefas')->findByFinalizada(false);
+    	$tarefas = $em->getRepository('VisaoIBundle:Tarefas')->findByUser($user->getId());
     	$notas = $em->getRepository('VisaoIBundle:Notas')->findByUser($user->getId());
     	$provas = $em->getRepository('VisaoIBundle:Provas')->findByUser($user->getId());
 
@@ -31,7 +30,7 @@ class VisaoIController extends Controller
     	* Retorna para a view, o array de tarefas selecionadas anteriormente.
     	*/
     	return $this->render('VisaoIBundle:Default:visao.html.twig', array(
-            'tarefasP' => $tarefas_pendentes,
+            'tarefasP' => $tarefas,
             'notas' => $notas,
             'provas' => $provas
         ));

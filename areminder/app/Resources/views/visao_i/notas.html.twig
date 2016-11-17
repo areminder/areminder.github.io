@@ -9,24 +9,47 @@
             <h1 class="page-header">Notas</h1>
         </div>
     </div>
-	<div class="row">
-    	{{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
-        
-        <div class="form-group">
-            {{ form_widget(form.descricao, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <div class="form-group">
-            {{ form_widget(form.data_criacao, {'attr': {'class': 'form-control', 'size': 60}}) }}
+    <div class="row">
+    	<div class="col-lg-3">
+        	{{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+            
+            <div class="form-group">
+                <label class="label label-info">Data</label>
+                <p/>
+                {{ form_widget(form.data_criacao, {'attr': {'size': 9, 'placeholder' : 'dd/mm/aaaa'}}) }}
+            </div>
+            <p/>
+            <div class="form-group">
+                {{ form_widget(form.descricao, {'attr': {'rows' : '7', 'cols' : '30', 'class': 'form-control', 'placeholder' : 'Descorra sua anotação aqui.'}}) }}
+            </div>
+
+            <p/>
+            <div class="form-group " ><button type="submit" class="btn btn-success">Criar nova anotação</button>
+            </div>
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+
         </div>
     </div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-    <script>
-        jQuery(document).ready(function() {
-            $('.js-datepicker').datepicker();
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /**
+            * Instancia o DatePicker da biblioteca jQuery, traduzindo os componentes para português
+            **/
+            $('.datepicker').datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+                    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+                    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+                    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+                    nextText: 'Próximo',
+                    prevText: 'Anterior'
+            });
         });
     </script>
 {% endblock %}

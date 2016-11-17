@@ -27,14 +27,16 @@
 
                             <div class="checkbox">
                                 <span class="pull-right">
-                                    <a href="{{ path('tarefa-deletada', {id: tarefa.id}) }}">
+                                    <a href="">
                                         <span class="fa fa-trash"></span> 
                                     </a>
                                 <span>{{ tarefa.id }}</span>
+                            
                             </div>
 
                             <label>
                                 <input type="checkbox" class="tarefa" value="{{ tarefa.id }}" {% if tarefa.finalizada %}checked="checked"{% endif %}> {{ tarefa.descricao }}
+                                }
                             </label>
                         </div>
 	        		{% endfor %}
@@ -43,4 +45,12 @@
                 <p>Nenhuma tarefa registrada no momento. Crie uma nova tarefa no formulário acima.</p>
 	        {% endif %}
        	</div>
+    {% endblock %}
+
+    {% block javascripts %}
+        <script type="text/javascript">
+            $(document).ready(function(){
+                console.log("oi");
+            });
+        </script>
     {% endblock %}

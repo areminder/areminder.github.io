@@ -81,10 +81,10 @@ class TarefasController extends Controller
     */ 
     public function deletaAction($id, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        echo "<pre>";print_r($id);die;
+    	$em = $this->getDoctrine()->getManager();
 
-        $tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
-        echo "<pre>";print_r($tarefa);die;
+    	$tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
 
     	if (!$task) {
     		$this->addFlash('error', 'Tarefa não encontrada');

@@ -81,25 +81,4 @@ class NotasController extends Controller
     	return $this->redirectToRoute('notas');
     }
 
-        /**
-    * @Route("/deleta-nota/{id}", name="nota-deletada")
-    * @Method({"GET", "POST"})
-    */ 
-    public function deletaAction($id, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $nota = $em->getRepository('VisaoIBundle:Notas')->find($id);
-
-        if (!$nota) {
-            $this->addFlash('error', 'Nota não encontrada');
-
-            return $this->redirectToRoute('notas');
-        }
-
-        $em->remove($nota);
-        $em->flush();
-
-        return $this->redirectToRoute('notas');
-    }
 }

@@ -3,17 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Academic Reminder{% endblock %}</title>
-
-        {% block stylesheets %}
-            {% stylesheets
-                'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
-                'assets/vendor/font-awesome/css/font-awesome.min.css'
-                'assets/vendor/dist/css/*.css'
-                output = 'bundles/compiled/css/app.css' %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
-        {% endblock %}
-
+        {% include 'layout/includeCss.html.twig' %}
     </head>
     <body>
         <!-- Header -->
@@ -27,18 +17,7 @@
             {% block body %}{% endblock %}
         </div>
 
-        {% javascripts
-            'assets/vendor/jquery/dist/jquery.min.js'
-            'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
-            'assets/vendor/dist/js/wow.min.js'
-            'assets/vendor/dist/js/slider.js'
-            'assets/vendor/dist/js/jquery.fancybox.js'
-            'assets/vendor/dist/js/owl.carousel.min.js'
-            'assets/vendor/dist/js/main.js'
-            'assets/vendor/dist/js/modernizr-2.6.2.min.js' 
-            output = 'bundles/compiled/js/app.js' %}
-            <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        {% include 'layout/includeJs.html.twig' %}
 
         {% include 'layout/footer.html.twig' %}
     </body>

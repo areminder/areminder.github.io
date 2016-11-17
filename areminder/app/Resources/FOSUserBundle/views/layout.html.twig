@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        {% include 'layout/includeCss.html.twig' %}
     </head>
     <body>
         <div>
@@ -29,5 +30,9 @@
             {% block fos_user_content %}
             {% endblock fos_user_content %}
         </div>
+
+        {% include 'layout/includeJs.html.twig' %}
+        
     </body>
+
 </html>

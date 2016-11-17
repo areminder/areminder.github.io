@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Entidade de notas
+ */
+
+namespace VisaoIBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Notas")
+ */
+
+class Notas
+{
+	/**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $descricao;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $data_criacao;
+    
+    /**
+    *  @ORM\ManyToOne(targetEntity="UsersBundle\Entity\Users")
+    *  @ORM\JoinColumn(name="id_user", referencedColumnName="id", onDelete="CASCADE")
+    */
+
+    private $user;
+}

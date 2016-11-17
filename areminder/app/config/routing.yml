@@ -13,5 +13,10 @@ tarefas:
     prefix:   /
     type: annotation
 
+notas:
+    resource: "@VisaoIBundle/Controller/NotasController.php"
+    prefix:   /
+    type: annotation
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

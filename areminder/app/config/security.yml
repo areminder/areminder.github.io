@@ -46,3 +46,6 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/visao-geral, role: ROLE_USER }
+        - { path: ^/tarefas, role: ROLE_USER }
+        - { path: ^/notas, role: ROLE_USER }
+        - { path: ^/provas, role: ROLE_USER }

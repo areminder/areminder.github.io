@@ -64,14 +64,4 @@ class Users extends BaseUser
     {
         return $this->tasks;
     }
-
-    /**
-     * Get tasks
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTasks()
-    {
-        return $this->tasks;
-    }
 }

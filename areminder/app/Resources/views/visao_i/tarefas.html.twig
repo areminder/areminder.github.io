@@ -14,7 +14,7 @@
             	<div class="form-group"><button type="submit" class="btn btn-success">Criar nova tarefa</button></div>
                 <p></p>
                 <div>
-                    {{ form_widget(form.data_finaliza, {'attr': {'size': 60}}) }}
+                    {{ form_widget(form.data_finaliza, {'attr': {'size': 9, 'placeholder' : 'dd/mm/aaaa'}}) }}
                 </div>
             	{{ form_widget(form) }}
             	{{ form_end(form) }}
@@ -27,8 +27,8 @@
                             <div class="alert {% if tarefa.finalizada %} alert-success {% else %} alert-info {% endif %}" id="tarefa-{{ tarefa.id }}">
                                 <input type="checkbox" class="tarefa" value="{{ tarefa.id }}" {% if tarefa.finalizada %}checked="checked"{% endif %}>
                                 <strong>{{ tarefa.descricao }}</strong> está 
-                                <span id="tarefa-{{tarefa.id}}">
-                                    {% if tarefa.finalizada %} <strong>completa!</strong> {% else %} <strong>pendente!</strong> {% endif %}
+                                <span id="tarefaStatus-{{tarefa.id}}">
+                                    {% if tarefa.finalizada %} <b>finalizada!</b> {% else %} <b>pendente!</b> {% endif %}
                                 </span>
                             </div>
                             <div class="checkbox pull-right">
@@ -48,14 +48,30 @@
 {% block javascripts %}
     <script type="text/javascript">
         $(document).ready(function() {
+            /**
+            * Instancia o DatePicker da biblioteca jQuery, traduzindo os componentes para português
+            **/
+            $('.datepicker').datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+                    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+                    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+                    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+                    nextText: 'Próximo',
+                    prevText: 'Anterior'
+            });
+
             $('.tarefa').change(function() {
                 var tarefa = $(this).val();
                 if($(this).is(":checked")) {
                     $('#tarefa-'+tarefa).removeClass('alert-info');
                     $('#tarefa-'+tarefa).addClass('alert-success');
+                    $('#tarefaStatus-'+tarefa).html('<b>finalizada!</b>');
                 } else {
                     $('#tarefa-'+tarefa).removeClass('alert-success');
                     $('#tarefa-'+tarefa).addClass('alert-info');
+                    $('#tarefaStatus-'+tarefa).html('<b>pendente!</b>');
                 }
                 mudaStatusTarefa(tarefa);
             });

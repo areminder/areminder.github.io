@@ -28,13 +28,21 @@ class TarefasController extends Controller
     		->setAction($this->generateUrl('tarefas'))
     		->setMethod('POST')
     		->add('descricao', TextType::class)
-    		->add('data_finaliza', DateType::class)
+    		->add('data_finaliza', DateType::class, array(
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
+                'html5' => 'false',
+                'attr' => array(
+                    'class' => 'datepicker',
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'dd/mm/yyyy')))
     		->getForm();
 
-    	$form->handleRequest($request);
 
-		$user = $this->get('security.token_storage')->getToken()->getUser();
-    	if ($form->isValid()) {
+        $form->handleRequest($request);
+
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        if ($form->isValid()) {
 
     		$tarefa->setUser($user);
 

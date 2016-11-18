@@ -97,6 +97,14 @@ class Tarefas
         return $this->data_criacao;
     }
 
+     /**
+     * @return mixed
+     */
+    public function isFinalizada()
+    {
+        return $this->finalizada;
+    }
+
     /**
      * Set finalizada
      *

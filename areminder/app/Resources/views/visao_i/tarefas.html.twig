@@ -23,20 +23,17 @@
         	{% if tarefas %}
 	        	<div class="list-group">
 	        		{% for tarefa in tarefas %}
-                        <div class="list-group-item" {% if not tarefa.finalizada %} style="background-color:#ff1a1a" {% endif %} id="tarefa-{{ tarefa.id }}">
-                            <div class="checkbox">
-                                <span class="pull-right">
-                                    <a href="{{ path('tarefa-deletada', {'id': tarefa.id }) }}">
-                                        <span class="fa fa-trash"></span> 
-                                    </a>
-                                <span>{{ tarefa.id }}</span>
+                        <div class="list-group-item" >
+                            <div class="alert {% if tarefa.finalizada %} alert-success {% else %} alert-info {% endif %}" id="tarefa-{{ tarefa.id }}">
+                                <input type="checkbox" class="tarefa" value="{{ tarefa.id }}" {% if tarefa.finalizada %}checked="checked"{% endif %}>
+                                <strong>{{ tarefa.descricao }}</strong> está 
+                                <span id="tarefa-{{tarefa.id}}">
+                                    {% if tarefa.finalizada %} <strong>completa!</strong> {% else %} <strong>pendente!</strong> {% endif %}
+                                </span>
                             </div>
-                            <div class="alert alert-info">
-                                {{ tarefa.descricao }} está <strong>pendente!</strong>
+                            <div class="checkbox pull-right">
+                                <a href="{{ path('tarefa-deletada', {'id': tarefa.id }) }}"><i class="fa fa-trash"></i></a>
                             </div>
-                            <label>
-                                <input type="checkbox" class="tarefa" value="{{ tarefa.id }}" {% if tarefa.finalizada %}checked="checked"{% endif %}> {{ tarefa.descricao }}
-                            </label>
                         </div>
 	        		{% endfor %}
 	        	</div>
@@ -51,7 +48,21 @@
 {% block javascripts %}
     <script type="text/javascript">
         $(document).ready(function() {
-            alert("oi");
+            $('.tarefa').change(function() {
+                var tarefa = $(this).val();
+                if($(this).is(":checked")) {
+                    $('#tarefa-'+tarefa).removeClass('alert-info');
+                    $('#tarefa-'+tarefa).addClass('alert-success');
+                } else {
+                    $('#tarefa-'+tarefa).removeClass('alert-success');
+                    $('#tarefa-'+tarefa).addClass('alert-info');
+                }
+                mudaStatusTarefa(tarefa);
+            });
         });
+
+        function mudaStatusTarefa(tarefa) {
+            $.post('/muda-status/' + tarefa);
+        }
     </script>
 {% endblock %}

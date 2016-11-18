@@ -40,7 +40,7 @@ class TarefasController extends Controller
 
     		$em->persist($tarefa);
     		$em->flush();
-    		$this->addFlash('notice', 'Tarefa adiciona!');
+            $this->addFlash('notice', 'Tarefa adicionada!');
 
     		return $this->redirectToRoute('tarefas');
     	}
@@ -48,13 +48,14 @@ class TarefasController extends Controller
     	$tarefas = $em->getRepository('VisaoIBundle:Tarefas')->findByUser($user->getId());
 
         return $this->render('VisaoIBundle:Tarefas:index.html.twig', array(
-        	'form' => $form->createView(),
-        	'tarefas' => $tarefas
-    	));
+            'form' => $form->createView(),
+            'tarefas' => $tarefas
+        ));
+
     }
 
     /**
-    * @Route("/muda-status-tarefa/{$id}", name="tarefa-finalizada")
+    * @Route("/muda-status/{id}", name="tarefa-concluida")
     * @Method({"GET", "POST"})
     */ 
     public function finalizaAction($id, Request $request)
@@ -63,7 +64,7 @@ class TarefasController extends Controller
 
     	$tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
 
-    	if (!$task) {
+    	if (!$tarefa) {
     		$this->addFlash('error', 'Tarefa não encontrada');
 
     		return $this->redirectToRoute('tarefas');

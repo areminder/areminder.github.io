@@ -27,9 +27,7 @@ class NotasController extends Controller
     		->setAction($this->generateUrl('notas'))
     		->setMethod('POST')
     		->add('descricao', TextareaType::class)
-    		->add('data_criacao', DateType::class, array(
-    		    'attr' => ['class' => 'js-datepicker'],
-    			'widget' => 'single_text'))
+    		->add('data_criacao', DateType::class)
     		->getForm();
 
     	$form->handleRequest($request);
@@ -52,5 +50,27 @@ class NotasController extends Controller
         	'form' => $form->createView(),
         	'notas' => $notas
     	));
+    }
+
+   	/**
+    * @Route("/deleta-nota/{id}", name="nota-deletada")
+    * @Method({"GET", "POST"})
+    */ 
+    public function deletaAction($id, Request $request)
+    {
+    	$em = $this->getDoctrine()->getManager();
+
+        $nota = $em->getRepository('VisaoIBundle:Notas')->find($id);
+
+    	if (!$nota) {
+    		$this->addFlash('error', 'Nota não encontrada');
+
+    		return $this->redirectToRoute('notas');
+    	}
+
+    	$em->remove($nota);
+    	$em->flush();
+
+    	return $this->redirectToRoute('notas');
     }
 }

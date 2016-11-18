@@ -6,7 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Academic Reminder - Sua visão</title>
         <!-- Faz a inclusão dos CSS's para a página interna (visão-geral) -->
-        {% include 'visao_i/includeCssVisao.html.twig' %}
+        
+        {% stylesheets
+            'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+            'assets/vendor/font-awesome/css/font-awesome.min.css'
+            'assets/vendor/dist/css/sb-admin-2.min.css'
+            'assets/vendor/dist/css/metisMenu.min.css'
+            filter='cssrewrite' output='css/appVisao.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
     </head>
     <body>
         <div id="wrapper">
@@ -31,5 +39,16 @@
                 {% block conteudo %}{% endblock %}
             </div>
     </div>
-    {% include 'visao_i/includeJsVisao.html.twig' %}
+    {% javascripts 
+            'assets/vendor/jquery/dist/jquery.min.js'
+            'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
+            'assets/vendor/dist/js/metisMenu.min.js'
+            'assets/vendor/dist/js/sb-admin-2.min.js'
+            output='js/appVisao.js' %}
+            <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% block javascripts %}
+    {% endblock %}
+
     </body>

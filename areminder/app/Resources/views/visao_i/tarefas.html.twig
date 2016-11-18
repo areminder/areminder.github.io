@@ -6,51 +6,52 @@
             </div>
         </div>
         <div class="row">
-        	{{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
-            
-            <div class="form-group">
-                {{ form_widget(form.descricao, {'attr': {'class': 'form-control', 'size': 60}}) }}
+            <div class="col-lg-6 col-md-12">
+            	{{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+                <div class="form-group">
+                    {{ form_widget(form.descricao, {'attr': {'class': 'form-control', 'size': 40, 'placeholder' : 'Insira a descrição da tarefa'}}) }}
+                </div>
+            	<div class="form-group"><button type="submit" class="btn btn-success">Criar nova tarefa</button></div>
+                <p></p>
+                <div>
+                    {{ form_widget(form.data_finaliza, {'attr': {'size': 60}}) }}
+                </div>
+            	{{ form_widget(form) }}
+            	{{ form_end(form) }}
             </div>
-            <div class="form-group">
-                {{ form_widget(form.data_finaliza, {'attr': {'class': 'form-control', 'size': 60}}) }}
-            </div>
-
-
-        	<button type="submit" style="background-color:#00ff00" class="btn btn-default">Criar nova Tarefa</button>
-        	{{ form_widget(form) }}
-        	{{ form_end(form) }}
-
+            <div class="col-lg-6 col-md-12">
         	{% if tarefas %}
 	        	<div class="list-group">
 	        		{% for tarefa in tarefas %}
                         <div class="list-group-item" {% if not tarefa.finalizada %} style="background-color:#ff1a1a" {% endif %} id="tarefa-{{ tarefa.id }}">
-
                             <div class="checkbox">
                                 <span class="pull-right">
                                     <a href="{{ path('tarefa-deletada', {'id': tarefa.id }) }}">
                                         <span class="fa fa-trash"></span> 
                                     </a>
                                 <span>{{ tarefa.id }}</span>
-                            
                             </div>
-
+                            <div class="alert alert-info">
+                                {{ tarefa.descricao }} está <strong>pendente!</strong>
+                            </div>
                             <label>
                                 <input type="checkbox" class="tarefa" value="{{ tarefa.id }}" {% if tarefa.finalizada %}checked="checked"{% endif %}> {{ tarefa.descricao }}
-                                }
                             </label>
                         </div>
 	        		{% endfor %}
 	        	</div>
             {% else %}
-                <p>Nenhuma tarefa registrada no momento. Crie uma nova tarefa no formulário acima.</p>
+                <div class="alert alert-danger">
+                    Nenhuma <strong>tarefa</strong> registrada. Crie uma nova utilizando o formulário.
+                </div>
 	        {% endif %}
        	</div>
     {% endblock %}
 
-    {% block javascripts %}
-        <script type="text/javascript">
-            $(document).ready(function(){
-                console.log("oi");
-            });
-        </script>
-    {% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            alert("oi");
+        });
+    </script>
+{% endblock %}

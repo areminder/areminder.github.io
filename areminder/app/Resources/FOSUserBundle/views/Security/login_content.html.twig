@@ -1,9 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
-    
         <div class="panel-heading">
             <div class="panel-title text-center">
                 <h1 class="title">Academic Reminder</h1>
@@ -19,6 +15,11 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         {% endif %}
 
+        {% if error %}
+            <div>{{ 'Usuário ou senha inválidos.' }}</div>
+            </p>
+        {% endif %}
+    
         <div class="form-group">
             <label for="username">Usuário</label>
             <input type="text" id="username" name="_username" placeholder="Nome de usuário ou e-mail" value="{{ last_username }}" required="required" />
@@ -47,8 +48,5 @@
 
     </div>
     </form>
-        <div class = "form-group">
-            <input  type="submit" id="_submit" class="btn btn-link btn-block" style="border-radius:0" name="_submit" value="" />
-        </div>
 
 </div>

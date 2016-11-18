@@ -76,7 +76,7 @@ class TarefasController extends Controller
     }
 
    	/**
-    * @Route("/deleta-tarefa/{$id}", name="tarefa-deletada")
+    * @Route("/deleta-tarefa/{id}", name="tarefa-deletada")
     * @Method({"GET", "POST"})
     */ 
     public function deletaAction($id, Request $request)
@@ -84,9 +84,8 @@ class TarefasController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $tarefa = $em->getRepository('VisaoIBundle:Tarefas')->find($id);
-        echo "<pre>";print_r($tarefa);die;
 
-    	if (!$task) {
+    	if (!$tarefa) {
     		$this->addFlash('error', 'Tarefa não encontrada');
 
     		return $this->redirectToRoute('tarefas');

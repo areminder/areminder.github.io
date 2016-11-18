@@ -5,10 +5,11 @@ namespace VisaoIBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 use VisaoIBundle\Entity\Tarefas;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class TarefasController extends Controller
 {
@@ -27,6 +28,7 @@ class TarefasController extends Controller
     		->setAction($this->generateUrl('tarefas'))
     		->setMethod('POST')
     		->add('descricao', TextType::class)
+    		->add('data_finaliza', DateType::class)
     		->getForm();
 
     	$form->handleRequest($request);
@@ -49,5 +51,49 @@ class TarefasController extends Controller
         	'form' => $form->createView(),
         	'tarefas' => $tarefas
     	));
+    }
+
+    /**
+    * @Route("/muda-status-tarefa/{$id}", name="tarefa-finalizada")
+    * @Method({"POST"})
+    */ 
+    public function finalizaAction($id, Request $request)
+    {
+    	$em = $this->getDoctrine()->getManager();
+
+    	$tarefa = $em->getRepository('VisaoIBundle:Tarefa')->find($id);
+
+    	if (!$task) {
+    		$this->addFlash('error', 'Tarefa não encontrada');
+
+    		return $this->redirectToRoute('tarefas');
+    	}
+
+    	$tarefa->setFinalizada(! $tarefa->isFinalizada());
+    	$em->flush();
+
+    	return $this->redirectToRoute('tarefas');
+    }
+
+   	/**
+    * @Route("/deleta-tarefa/{$id}", name="tarefa-deletada")
+    * @Method({"POST"})
+    */ 
+    public function deletaAction($id, Request $request)
+    {
+    	$em = $this->getDoctrine()->getManager();
+
+    	$tarefa = $em->getRepository('VisaoIBundle:Tarefa')->find($id);
+
+    	if (!$task) {
+    		$this->addFlash('error', 'Tarefa não encontrada');
+
+    		return $this->redirectToRoute('tarefas');
+    	}
+
+    	$em->remove($tarefa);
+    	$em->flush();
+
+    	return $this->redirectToRoute('tarefas');
     }
 }

@@ -31,6 +31,10 @@ class Tarefas
      */
     protected $data_criacao;
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $data_finaliza;
+    /**
      * @ORM\Column(type="boolean")
      */
     protected $finalizada = 0;
@@ -116,6 +120,29 @@ class Tarefas
     {
         return $this->finalizada;
     }
+    /**
+     * Set dataFinaliza
+     *
+     * @param \DateTime $dataFinaliza
+     *
+     * @return Tarefas
+     */
+    public function setDataFinaliza($dataFinaliza)
+    {
+        $this->data_finaliza = $dataFinaliza;
+
+        return $this;
+    }
+
+    /**
+     * Get dataFinaliza
+     *
+     * @return \DateTime
+     */
+    public function getDataFinaliza()
+    {
+        return $this->data_finaliza;
+    }
 
     /**
     *  @ORM\ManyToOne(targetEntity="UsersBundle\Entity\Users", cascade={"remove"})
@@ -147,4 +174,5 @@ class Tarefas
     {
         return $this->user;
     }
+
 }

@@ -16,47 +16,45 @@
     	<div class="col-lg-12">
         	{{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
             
-            <div class="form-group">
-                {{ form_widget(form.materia, {'attr': {'size' : '30', 'class': 'form-control', 'placeholder' : 'Preencha com a disciplina da prova.'}}) }}
-            </div>
-            <p/>
 
             <div class="form-group">
                 <label class="label label-info">Data</label>
                 <p/>
                 {{ form_widget(form.data_prova, {'attr': {'size': 9, 'placeholder' : 'dd/mm/aaaa'}}) }}
             </div>
+            <br/>
+            
+            <div class="form-group">
+                {{ form_widget(form.materia, {'attr': {'size' : '30', 'class': 'form-control', 'placeholder' : 'Preencha com a disciplina da prova.'}}) }}
+            </div>
 
-            <p/>
+            
             <div class="form-group " ><button type="submit" class="btn btn-success">Criar nova prova</button>
             </div>
                 {{ form_widget(form) }}
                 {{ form_end(form) }}
-
         </div>
-    	</p>
         <div class="col-lg-12 col-md-12">
-                    {% if provas %}
-                        <div class="list-group">
-                            {% for prova in provas %}
-                                <div class="list-group-item" >
-                                    <strong>{{ prova.materia }}</strong> 
-                                        <span class="pull-right">
-                                        	{{prova.dataProva|date("(d/m/Y)")}}
-                                            <a href="{{ path('prova-deletada', {'id': prova.id }) }}"><i class="fa fa-trash" style="color:#D33724"></i></a>
-                                        </span>
+            </p>
+            {% if provas %}
+                <div class="list-group">
+                    {% for prova in provas %}
+                        <div class="list-group-item" >
+                            <strong>{{ prova.materia }}</strong> 
+                                <span class="pull-right">
+                                	{{prova.dataProva|date("(d/m/Y)")}}
+                                    <a href="{{ path('prova-deletada', {'id': prova.id }) }}"><i class="fa fa-trash" style="color:#D33724"></i></a>
+                                </span>
 
-                                </div>
-                            {% endfor %}
                         </div>
-                    {% else %}
-                    <div class="alert alert-danger">
-                            Nenhuma <strong>prova</strong> registrada. Crie uma nova utilizando o formulário.
-                    </div>
-                    {% endif %}        
+                    {% endfor %}
+                </div>
+            {% else %}
+            <div class="alert alert-danger">
+                    Nenhuma <strong>prova</strong> registrada. Crie uma nova utilizando o formulário.
             </div>
-
-
+            {% endif %}        
+        </div>
     </div>
 
 {% endblock %}

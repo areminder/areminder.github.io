@@ -9,8 +9,9 @@
             <h1 class="page-header">Notas</h1>
         </div>
     </div>
+
     <div class="row">
-    	<div class="col-lg-12">
+    	<div class="col-lg-6 col-md-12">
         	{{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
             
             <div class="form-group">
@@ -30,31 +31,27 @@
                 {{ form_end(form) }}
 
         </div>
-    </p>
+        <div class="col-lg-6 col-md-12">
+            </p>
+            {% if notas %}
+                <div class="list-group">
+                    {% for nota in notas %}
+                        <div class="list-group-item" >
+                            <strong>{{ nota.descricao }}</strong> 
+                                <span class="pull-right">
+                                    <a href="{{ path('nota-deletada', {'id': nota.id }) }}"><i class="fa fa-trash" style="color:#D33724"></i></a>
+                                </span>
 
-            <div class="col-lg-12 col-md-12">
-                    {% if notas %}
-                        <div class="list-group">
-                            {% for nota in notas %}
-                                <div class="list-group-item" >
-                                    <strong>{{ nota.descricao }}</strong> 
-                                        <span class="pull-right">
-                                            <a href="{{ path('nota-deletada', {'id': nota.id }) }}"><i class="fa fa-trash" style="color:#D33724"></i></a>
-                                        </span>
-
-                                </div>
-                            {% endfor %}
                         </div>
-                    {% else %}
-                    <div class="alert alert-danger">
-                            Nenhuma <strong>anotação</strong> registrada. Crie uma nova utilizando o formulário.
-                    </div>
-                    {% endif %}        
-            </div>
-
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-danger">
+                    Nenhuma <strong>anotação</strong> registrada. Crie uma nova utilizando o formulário.
+                </div>
+            {% endif %}        
         </div>
-
-
+    </div>
 
 {% endblock %}
 

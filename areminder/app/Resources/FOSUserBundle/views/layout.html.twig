@@ -18,15 +18,6 @@
                 filter='cssrewrite' output='css/app.css' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
-        {% if app.request.hasPreviousSession %}
-            {% for type, messages in app.session.flashbag.all() %}
-                {% for message in messages %}
-                    <div class="flash-{{ type }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        {% endif %}
 
         <div>
             {% block fos_user_content %}

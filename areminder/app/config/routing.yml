@@ -18,5 +18,10 @@ notas:
     prefix:   /
     type: annotation
 
+provas:
+    resource: "@VisaoIBundle/Controller/ProvasController.php"
+    prefix:   /
+    type: annotation
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

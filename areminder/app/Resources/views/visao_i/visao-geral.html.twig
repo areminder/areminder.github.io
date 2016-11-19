@@ -4,51 +4,100 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Visão geral</h1>
             </div>
-            <div class="row">
-			    <div class="col-lg-6 col-md-6">
-			        <div class="panel panel-primary">
-			            <div class="panel-heading">
-			                <div class="row">
-			                    <div class="col-xs-3">
-			                        <i class="fa fa-minus-square fa-5x"></i>
-			                    </div>
-			                    <div class="col-xs-9 text-right">
-			                        <div class="huge">26</div>
-			                        <div>Tarefas pendentes!</div>
-			                    </div>
-			                </div>
-			            </div>
-			            <a href="/tarefas">
-			                <div class="panel-footer">
-			                    <span class="pull-left">Detalhes</span>
-			                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-			                    <div class="clearfix"></div>
-			                </div>
-            			</a>
-        			</div>
+		    <div class="col-lg-6 col-md-6">
+		        <div class="panel panel-primary">
+		            <div class="panel-heading">
+		                <div class="row">
+		                    <div class="col-xs-3">
+		                        <i class="fa fa-minus-square fa-5x"></i>
+		                    </div>
+		                    <div class="col-xs-9 text-right">
+		                        <div class="huge">{{ tarefasP|length }}</div>
+		                        <span>Tarefas pendentes!</span>
+		                    </div>
+		                </div>
+		            </div>
+		            <a href="/tarefas">
+		                <div class="panel-footer">
+		                    <span class="pull-left">Detalhes</span>
+		                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+		                    <div class="clearfix"></div>
+		                </div>
+        			</a>
     			</div>
-    			<div class="col-lg-6 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-sticky-note fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Anotações!</div>
-                                </div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-book fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{ notas|length }}</div>
+                                <div>Anotações!</div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Detalhes</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">Detalhes</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-calendar fa-fw"></i>
+                            Provas marcadas
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Matéria</th>
+                                <th>Data</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for prova in provas %}
+                                    <tr>
+                                        <td>{{ prova.materia }}</td>
+                                        <td>{{ prova.dataProva|date("d/m/Y") }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <th>Matéria</th>
+                                <th>Data</th>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
-        	</div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Últimas anotações
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            {% for nota in notas %}
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-sticky-note fa-fw"></i> {{ nota.descricao }}
+                                    <span class="pull-right text-muted small"><em> {{ nota.dataCriacao|date("d/m/Y") }} </em>
+                                    </span>
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <a href="/notas" class="btn btn-default btn-block">Ver todas as anotações</a>
+                    </div>
+                </div>
+            </div>
         </div>
     {% endblock %}
